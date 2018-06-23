@@ -6,8 +6,12 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 @Entity
-    public class Category {
+public class Category {
 
     @Id
     @GeneratedValue
@@ -32,6 +36,4 @@ import java.util.List;
     public void setName(String name) {
         this.name = name;
     }
-
-    }
-
+}
