@@ -22,10 +22,12 @@
     <tr th:each="cheese : ${cheeses}">
         <td th:text="${cheese.name}"></td>
         <td th:text="${cheese.description}"></td>
-        <td th:text="${cheese.category.getName}"></td>
+        <td th:text="${cheese.category.getName()}"></td>
     </tr>
 
 </table>
+
+<a th:href="@{'/category/add/'}">Add Category</a>
 
 </body>
 </html>
