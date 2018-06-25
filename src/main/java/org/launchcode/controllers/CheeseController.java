@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-/**
- * Created by LaunchCode
- */
 @Controller
 @RequestMapping("cheese")
 public class CheeseController {
@@ -43,14 +40,15 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddCheeseForm(@ModelAttribute  @Valid Cheese newCheese,
-                                       @RequestParam int categoryId, Errors errors,
-                                       Model model) {
+    public String processAddCheeseForm(@ModelAttribute @Valid Cheese newCheese,
+                                       @RequestParam int categoryId,
+                                       Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Cheese");
             return "cheese/add";
         }
+
         Category cat = categoryDao.findOne(categoryId);
         newCheese.setCategory(cat);
         cheeseDao.save(newCheese);
@@ -73,6 +71,7 @@ public class CheeseController {
 
         return "redirect:";
     }
+
     @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.GET)
     public String displayEditCheeseForm(Model model, @PathVariable int cheeseId) {
 

@@ -19,6 +19,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping(value = "menu")
 public class MenuController {
+
     @Autowired
     private MenuDao menuDao;
 
@@ -33,6 +34,7 @@ public class MenuController {
 
         return "menu/index";
     }
+
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("title", "Add Menu");
@@ -52,6 +54,7 @@ public class MenuController {
         menuDao.save(newMenu);
         return "redirect:view/" + newMenu.getId();
     }
+
     @RequestMapping(value = "view/{id}", method = RequestMethod.GET)
     public String view(Model model, @PathVariable int id) {
 
@@ -74,6 +77,7 @@ public class MenuController {
 
         return "menu/add-item";
     }
+
     @RequestMapping(value = "add-item/{menuId}", method = RequestMethod.POST)
     public String addItem(Model model, @ModelAttribute @Valid AddMenuItemForm itemForm,
                           Errors errors, @PathVariable int menuId) {

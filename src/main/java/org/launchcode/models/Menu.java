@@ -10,6 +10,7 @@ import java.util.List;
 
 @Entity
 public class Menu {
+
     @Id
     @GeneratedValue
     private int id;
@@ -38,6 +39,7 @@ public class Menu {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
