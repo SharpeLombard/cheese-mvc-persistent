@@ -13,8 +13,8 @@
             <label th:for="cheeseId">Cheese</label>
             <select th:field="*{cheeseId}">
                 <option th:each="cheese : ${form.cheeses}"
-                         +                    th:value="${cheese.id}"
-                         +                    th:text="${cheese.name}"></option>
+                        th:value="${cheese.id}"
+                        th:text="${cheese.name}"></option>
             </select>
         </div>
 
